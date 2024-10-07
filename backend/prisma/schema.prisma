@@ -32,3 +32,4 @@ model Favorite {
   movie   Movie  @relation(fields: [movieId], references: [id])
   @@id([userId, movieId])
 }
+////asdasdasdasdasd
