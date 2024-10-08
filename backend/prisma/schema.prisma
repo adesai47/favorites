@@ -1,5 +1,3 @@
-// prisma/schema.prisma
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -10,26 +8,26 @@ datasource db {
 }
 
 model User {
-  id            Int      @id @default(autoincrement())
-  email         String   @unique
-  passwordHash  String
-  favorites     Favorite[]
+  id           Int        @id @default(autoincrement())
+  email        String     @unique
+  passwordHash String
+  favorites    Favorite[]
 }
 
 model Movie {
-  id           Int      @id @default(autoincrement())
-  title        String
-  description  String
-  posterUrl    String
-  releaseDate  DateTime
-  favorites    Favorite[]
+  id          Int        @id @default(autoincrement())
+  title       String
+  description String
+  posterUrl   String
+  releaseDate DateTime
+  favorites   Favorite[]
 }
 
 model Favorite {
   userId  Int
   movieId Int
-  user    User   @relation(fields: [userId], references: [id])
-  movie   Movie  @relation(fields: [movieId], references: [id])
+  movie   Movie @relation(fields: [movieId], references: [id])
+  user    User  @relation(fields: [userId], references: [id])
+
   @@id([userId, movieId])
 }
-////asdasdasdasdasd
